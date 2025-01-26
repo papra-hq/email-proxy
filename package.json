@@ -1,0 +1,27 @@
+{
+  "name": "@papra/email-proxy",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "postal-mime": "^2.4.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.16.0",
+    "@cloudflare/workers-types": "^4.20250121.0",
+    "eslint": "^9.18.0",
+    "typescript": "^5.7.3",
+    "wrangler": "^3.103.2"
+  }
+}
