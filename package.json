@@ -27,7 +27,8 @@
     "deploy": "wrangler publish",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "wrangler build"
   },
   "dependencies": {
     "postal-mime": "^2.4.1"
