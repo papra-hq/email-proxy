@@ -2,11 +2,26 @@
   "name": "@papra/email-proxy",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
-  "main": "index.js",
+  "packageManager": "pnpm@9.11.0",
+  "description": "Email to HTTP proxy for Papra document ingestion",
+  "author": "Corentin Thomasset <corentinth@proton.me> (https://corentin.tech)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/papra-hq/email-proxy"
+  },
+  "bugs": {
+    "url": "https://github.com/papra-hq/email-proxy/issues"
+  },
+  "keywords": [
+    "email",
+    "proxy",
+    "papra",
+    "document",
+    "ingestion",
+    "cloudflare",
+    "workers"
+  ],
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler publish",
