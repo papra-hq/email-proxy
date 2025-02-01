@@ -1,7 +1,7 @@
 {
   "name": "@papra/email-proxy",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packageManager": "pnpm@9.11.0",
   "description": "Email to HTTP proxy for Papra document ingestion",
   "author": "Corentin Thomasset <corentinth@proton.me> (https://corentin.tech)",
