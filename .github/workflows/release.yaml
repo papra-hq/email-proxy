@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*.*.*'
 
+permissions:
+  contents: write
+
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
@@ -23,7 +26,10 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Upload to GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist/index.js
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          RELEASE_NAME="Release $TAG_NAME"
+          gh release create "$TAG_NAME" "dist/index.js#index.js" --title "$RELEASE_NAME" --notes "🚀 Auto-generated release for $TAG_NAME"
