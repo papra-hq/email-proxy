@@ -1,36 +1,12 @@
-import type { Email } from 'postal-mime';
 import type { Env } from './types';
+import { triggerWebhook } from '@owlrelay/webhook';
 import PostalMime from 'postal-mime';
 
 async function parseEmail({ rawMessage }: { rawMessage: ReadableStream<Uint8Array> }) {
-  const rawEmail = new Response(rawMessage);
-  const parser = new PostalMime();
-
-  const emailBuffer = await rawEmail.arrayBuffer();
-  const email = await parser.parse(emailBuffer);
+  const emailBuffer = await new Response(rawMessage).arrayBuffer();
+  const email = await new PostalMime().parse(emailBuffer);
 
   return { email };
-}
-
-async function triggerWebhook({ email, webhookUrl, webhookSecret }: { email: Email; webhookUrl: string; webhookSecret: string }) {
-  const body = new FormData();
-
-  body.append('meta', JSON.stringify({ to: email.to, from: email.from }));
-
-  for (const attachment of email.attachments) {
-    body.append('attachments[]', new Blob([attachment.content], { type: attachment.mimeType }), attachment.filename ?? 'file');
-  }
-
-  await fetch(
-    webhookUrl,
-    {
-      method: 'POST',
-      body,
-      headers: {
-        Authorization: `Bearer ${webhookSecret}`,
-      },
-    },
-  );
 }
 
 function parseConfig({ env }: { env: Env }) {
