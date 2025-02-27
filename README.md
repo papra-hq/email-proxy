@@ -2,6 +2,9 @@
 
 This repository contains the source code for the Papra email proxy. The Papra email proxy is a custom [Cloudflare Email worker](https://developers.cloudflare.com/email-routing/email-workers/) that allows to forward emails to your [Papra](https://papra.app) instance for document ingestion.
 
+> [!TIP]
+> For a more managed solution, you can consider using [OwlRelay](https://owlrelay.email) which is a hosted and managed solution to proxy emails to your Papra instance.
+
 ## Usage
 
 1. Deploy this worker to your Cloudflare account.
