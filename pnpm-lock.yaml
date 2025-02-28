@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@owlrelay/webhook':
-        specifier: ^0.0.1
-        version: 0.0.1
+        specifier: ^0.0.2
+        version: 0.0.2
       postal-mime:
         specifier: ^2.4.1
         version: 2.4.1
@@ -405,8 +405,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owlrelay/webhook@0.0.1':
-    resolution: {integrity: sha512-RXwIAIdFJwE2pyjeEbO5vkj9P3Gp+S/wAomFKIaWkxI65qr50Pzz3f4jNd3nhoDUG+bVw43i9thXzWDGB3LmQA==}
+  '@owlrelay/webhook@0.0.2':
+    resolution: {integrity: sha512-SmZVHMbkyWgXqXns/ZbnMeK2DnlgfXixeROPzyV75SX6oFpKtL95x3xwKefbwX4EGmFUOSx9dNHfCionTLYyEw==}
     engines: {node: '>=20.0.0'}
 
   '@pkgr/core@0.1.1':
@@ -2169,7 +2169,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.18.0
 
-  '@owlrelay/webhook@0.0.1':
+  '@owlrelay/webhook@0.0.2':
     dependencies:
       ofetch: 1.4.1
 
