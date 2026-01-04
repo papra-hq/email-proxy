@@ -1,5 +1,6 @@
 import type { Address, Email } from 'postal-mime';
 import type { Env } from './types';
+import { createLogger } from '@crowlog/logger';
 import { triggerWebhook } from '@owlrelay/webhook';
 import PostalMime from 'postal-mime';
 
@@ -51,8 +52,12 @@ function parseConfig({ env }: { env: Env }) {
   };
 }
 
+const logger = createLogger({ namespace: 'email-proxy' });
+const createRequestId = ({ now = new Date() }: { now?: Date } = {}) => `req_${now.getTime()}${Math.random().toString(36).substring(2, 15)}`;
+
 export default {
   async email(message: ForwardableEmailMessage, env: Env): Promise<void> {
+    const requestId = createRequestId();
     const { webhookUrl, webhookSecret } = parseConfig({ env });
     const { email } = await parseEmail({
       rawMessage: message.raw,
@@ -60,6 +65,20 @@ export default {
       realFrom: message.from,
     });
 
-    await triggerWebhook({ email, webhookUrl, webhookSecret });
+    logger.info({
+      from: email.from,
+      originalFrom: email.originalFrom,
+      to: email.to,
+      originalTo: email.originalTo,
+      requestId,
+    }, 'Received email');
+
+    try {
+      await triggerWebhook({ email, webhookUrl, webhookSecret });
+      logger.info({ requestId }, 'Webhook triggered successfully');
+    } catch (error) {
+      logger.error({ error, requestId }, 'Failed to trigger webhook');
+      throw error;
+    }
   },
 };
