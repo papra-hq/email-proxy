@@ -32,7 +32,7 @@
     "release": "bumpp --commit --tag --push"
   },
   "dependencies": {
-    "@crowlog/logger": "^2.2.1",
+    "@crowlog/logger": "^2.2.2",
     "@owlrelay/webhook": "^0.0.2",
     "postal-mime": "^2.4.1"
   },

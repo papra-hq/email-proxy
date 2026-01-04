@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@crowlog/logger':
-        specifier: ^2.2.1
-        version: 2.2.1
+        specifier: ^2.2.2
+        version: 2.2.2
       '@owlrelay/webhook':
         specifier: ^0.0.2
         version: 0.0.2
@@ -155,8 +155,8 @@ packages:
   '@cloudflare/workers-types@4.20250121.0':
     resolution: {integrity: sha512-2bBosmudcwvUOKzuCL/Jum18LDh3QoU0QnTNMXIgcVwuq3LaNzyZnOW14bFXPhLU/84ZjNO3zO5R/U11Zgag2Q==}
 
-  '@crowlog/logger@2.2.1':
-    resolution: {integrity: sha512-C16uV/CgT1bIw9I8szA9xBLO/fGhxCOB2RCzhzP0YDcwdgEn9qU3C+JZKE+GAy911jTidQDfJWkkAoWAcNqnhg==}
+  '@crowlog/logger@2.2.2':
+    resolution: {integrity: sha512-Gc82qvlKT2dArG7wjOij4aV1itSMAf2hoblprGDMuR6khCXUc59WDwl2EU9aDbHMLwC2Mn1276TUfkNn2u1iDQ==}
     engines: {node: '>=22.0.0'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -2115,7 +2115,7 @@ snapshots:
 
   '@cloudflare/workers-types@4.20250121.0': {}
 
-  '@crowlog/logger@2.2.1': {}
+  '@crowlog/logger@2.2.2': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
